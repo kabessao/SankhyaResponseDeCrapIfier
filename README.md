@@ -5,6 +5,8 @@ For some reason the geniuses at [Sankhya](https://www.sankhya.com.br) decided th
 
 If you wanna see how **crap** their response is, just look at [their documentation](https://developer.sankhya.com.br/reference/get_produto).
 
+It's important to note that this only applies for `CRUDServiceProvider.loadRecords` responses, since other "methods" can return different kinds of crappy json content.
+
 
 ## usage
 
