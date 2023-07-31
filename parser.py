@@ -2,9 +2,10 @@
 import json
 import sys
 import os
+import inspect
 
 
-def parse(response: str, filter_empty_values = False, filter_customized_fields = True, make_dollar_values = False):
+def parse(response: str, filter_empty_values = False, filter_customized_fields = True):
     jsontext = json.loads(response)
 
     try:
@@ -35,11 +36,8 @@ def parse(response: str, filter_empty_values = False, filter_customized_fields =
             if filter_empty_values and (not value or str(value) == "0"):
                 continue
 
-            if (filter_customized_fields and "AD_" in names[i]):
+            if (filter_customized_fields and names[i].startswith("AD_")):
                 continue
-
-            if make_dollar_values:
-                value = { "$": value}
 
             sorted_values[names[i]] = value
 
@@ -67,7 +65,6 @@ if __name__ == "__main__":
     arguments = {
         "filter_empty_values" : False,
         "filter_customized_fields" : False,
-        "make_dollar_values" : False
     }
 
     for arg in sys.argv[1:]:
@@ -104,7 +101,7 @@ if __name__ == "__main__":
 
         text = file.read()
 
-        result = parse(text, filter_empty_values=False, filter_customized_fields=False)
+        result = parse(text, **arguments)
 
         text = json.dumps(result, indent=4)
 
