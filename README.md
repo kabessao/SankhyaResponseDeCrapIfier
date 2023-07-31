@@ -103,3 +103,7 @@ and this is it "uncrapified":
     }
 ]
 ```
+
+
+# DISCLAIMER
+I don't condone any kind of harassment whatsoever towards anyone, be it individual or company. The salt you see in this `README.MD` file comes from lack of propper documentation, lack of uniformity with common standards, and some times (more often than not) lack of support. At some point I just had to make my own tools.
